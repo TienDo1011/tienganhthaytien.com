@@ -1,6 +1,5 @@
 $(function() {
   $(document).keydown(function(e) {
-    e.preventDefault();
     if(e.which == 13) {
       var value = $('#s').val().toLowerCase();
       $('#oald').empty();
