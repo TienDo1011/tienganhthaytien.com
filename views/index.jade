@@ -8,7 +8,10 @@ block content
           h2 Type word & press Enter
           .col-md-8.col-md-offset-2.well
             .input-group
-            input.form-control#s(type='text', placeholder="Search for...", autofocus)
+              span
+                input.form-control#s(type='text', placeholder="Search for...", describedby="basic-addon2", autofocus)
+              span
+                button.btn.btn-default.visible-xs(type="submit") Go
     .row
       .col-md-12
         #resultsDiv
