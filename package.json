@@ -22,5 +22,8 @@
     "redirect-https": "^1.1.0",
     "request": "^2.75.0",
     "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
