@@ -5,7 +5,7 @@ $(function() {
       $('#oald').empty();
       $('#vndic').empty();
       $.ajax({
-        url: "http://dict.tienganhthaytien.com/dict",
+        url: "http://localhost:3000/dict",
         data: { search: value }
       })
         .done(function( data ) {
