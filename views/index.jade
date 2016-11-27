@@ -8,15 +8,12 @@ block content
           h2 Type word & press Enter
           .col-md-8.col-md-offset-2.well
             .input-group
-              span
-                input.form-control#s(type='text', placeholder="Search for...", describedby="basic-addon2", autofocus)
-              span
-                button.btn.btn-default.visible-xs(type="submit") Go
+            input.form-control#s(type='text', placeholder="Search for...", autofocus)
     .row
       .col-md-12
         #resultsDiv
           #oald.col-lg-6
-          .col-lg-3
+          #spinning.col-lg-3
           #vndic.col-lg-3
   script(src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous")
   script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js')
