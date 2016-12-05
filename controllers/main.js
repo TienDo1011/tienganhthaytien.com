@@ -17,32 +17,36 @@ exports.dict = function(req, res, next) {
   DictData
     .findOne({word: wordRequest})
     .exec(function(err, word) {
+      console.log('looked for word');
       if(word) {
         sendResponse(res, 200, JSON.stringify(word));
       } else {
+        console.log('make request call to oald & 1tudien');
         var url1 = 'http://www.oxfordlearnersdictionaries.com/definition/english/' + wordRequest;
-        var url2 = 'http://www.1tudien.com/?w=' + wordRequest;
+        var url2 = 'http://dict.laban.vn/find?type=1&query=' + wordRequest;
 
         async.parallel([
-          function(cb) {
+          function(callback) {
             request(url1, function(error, response, html) {
               if(!error) {
                 var $ = cheerio.load(html);
-                cb(null, $.html('.h-g'));
+                callback(null, $.html('.h-g'));
               }
             });
           },
-          function(cb) {
-            request(url2, function(error, response, html) {
+          function(callback) {
+            request({
+              method: 'GET',
+              url: url2,
+              gzip: true
+            }, function(error, response, html) {
               if(!error) {
                 var $ = cheerio.load(html);
-                $('#divDictDetail1').attr('onmouseup', null).attr('onmousemove', null);
-                cb(null, $.html('#divDictDetail1'));
+                callback(null, $('#content_selectable .content').first().html());
               }
             });
           }
         ], function(err, results) {
-          console.log(results[1]);
           DictData.create({
             word: wordRequest,
             oaldData: results[0],
