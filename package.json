@@ -1,12 +1,12 @@
 {
-  "name": "SearchBoxV2",
+  "name": "SearchBox",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
-    "async": "^2.0.1",
+    "async": "^2.1.4",
     "body-parser": "~1.15.1",
     "cheerio": "^0.22.0",
     "cookie-parser": "~1.4.3",
