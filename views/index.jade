@@ -1,20 +1,29 @@
 extends layout
 
 block content
-  .container
-    .row
-      .col-md-12
-        .jumbotron.text-center
-          h2 Type word & press Enter
-          .col-md-8.col-md-offset-2.well
-            .input-group.col-md-12
-              input.form-control#s(type='text', placeholder="Search for...", autofocus)
-    .row
-      .col-md-12
-        #resultsDiv
-          #oald.col-lg-6
-          #spinning.col-lg-3
-          #vndic.col-lg-3
-  script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous")
-  script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js')
-  script(type='text/javascript', src='/javascripts/script.js')
+  .row
+    .col-xs-4
+      a(href='http://tienganhthaytien.com/')
+        img(alt='Brand', src='/brand-transparent.png', style='width:55px;height:40px;')
+    .col-xs-8
+      ul.list-inline.pull-right
+        li
+          a(href='http://tienganhthaytien.com/') Trang chủ
+        li
+          a(href='http://tienganhthaytien.com/dang-ky-hoc/') Đăng ký học
+        li
+          a(href='http://tienganhthaytien.com/cach-hoc-link-tai-phim/') Tự học
+        li
+          a(href='http://tienganhthaytien.com/lien-he/') Liên hệ
+    .col-xs-12
+      .jumbotron.text-center
+        h2 Type word & press Enter
+        .col-xs-8.col-xs-offset-2.well
+          .input-group.col-xs-12
+            input.form-control#s(type='text', placeholder="Search for...", autofocus)
+  .row
+    .col-md-12
+      #resultsDiv
+        #oald.col-lg-6
+        #spinning.col-lg-3
+        #vndic.col-lg-3
