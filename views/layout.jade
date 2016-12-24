@@ -4,32 +4,59 @@ html
     title= title
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
-    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css')
-    link(href='http://stc.laban.vn/dictionary/css/styles-1.11.min.css', rel='stylesheet', type='text/css')
-    link(href='http://www.oxfordlearnersdictionaries.com/external/styles/interface.css?version=1.5.30', rel='stylesheet', type='text/css')
-    link(href='http://www.oxfordlearnersdictionaries.com/external/styles/oxford.css?version=1.5.30', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', type="text/css" href='/css/semantic.min.css')
     style.
-      .tl {
-        font-weight: bold;
-        color: blue;
-      }
-    
-      #oald.fa {
-          font-size: 100px;
-          line-height: 100px;
-          width: 100px;
-          height: 100px;
-          text-align: center;
-          vertical-align: bottom;
-      }
-      
-      body {
-        padding-top: 20px;
+      #body-content {
+        margin-top: 8%;
       }
   body
-    .container
-      block content 
+    #header
+      //- - var endpoint = 'http://tienganhthaytien.com/'
+      - var endpoint = 'http://localhost:3001/'
+      .ui.container
+        .ui.top.fixed.pointing.large.menu
+          a.item(href=endpoint)
+            img.ui.small.image(src="/brand-transparent.png", style='width:60px;height:45px;')
+          .right.menu
+            a.item(href=endpoint) Trang chủ
+            .ui.dropdown.item
+              i.dropdown.icon  Đăng ký học
+              .menu
+                a.item(href='#{endpoint}test-dau-vao/') Test đầu vào
+                a.item(href='#{endpoint}dang-ky-hoc/') Đăng ký học 
+            .ui.dropdown.item
+              i.dropdown.icon  Tự học
+              .menu
+                a.item(href='#{endpoint}cach-hoc-link-tai-phim/') Cách học & Link tải phim
+                a.item(href='#{endpoint}phim/') Phim
+                a.item(href='#{endpoint}truyen/') Truyện 
+                a.item(href='#{endpoint}luyen-nghe/') Luyện nghe 
+            a.item(href='http://dict.tienganhthaytien.com/') Dictionary 
+            a.item(href='#{endpoint}lien-he/') Liên hệ
+    #body-content
+      block content
+    br
+    br
+    br
+    br
+    #footer
+      .ui.inverted.vertical.footer.segment
+        .ui.container
+          .ui.stackable.inverted.divided.equal.height.stackable.grid
+            .five.wide.column
+              h4.ui.inverted.header Liên hệ
+              .ui.inverted.link.list
+                a.item(href='#{endpoint}lien-he/') Bản đồ
+            .five.wide.column
+              h4.ui.inverted.header Social
+              .ui.inverted.link.list
+                a.item(href='https://www.facebook.com/tienganhthaytien/?ref=bookmarks') Facebook
+            .five.wide.column
+              h4.ui.inverted.header Copyright
+              p
+                | © Copyright 2100, Tiendo1011@gmail.com
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous")
-    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js')
-    script(type='text/javascript', src='/javascripts/script.js')
+    script(type='text/javascript', src='/js/semantic.min.js')
+    script.
+      $('.ui.dropdown').dropdown({transition: 'drop', on: 'hover'});
+      $('.ui.embed').embed();

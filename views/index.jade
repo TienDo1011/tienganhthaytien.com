@@ -1,29 +1,58 @@
 extends layout
 
 block content
-  .row
-    .col-xs-4
-      a(href='http://tienganhthaytien.com/')
-        img(alt='Brand', src='/brand-transparent.png', style='width:55px;height:40px;')
-    .col-xs-8
-      ul.list-inline.pull-right
-        li
-          a(href='http://tienganhthaytien.com/') Trang chủ
-        li
-          a(href='http://tienganhthaytien.com/dang-ky-hoc/') Đăng ký học
-        li
-          a(href='http://tienganhthaytien.com/cach-hoc-link-tai-phim/') Tự học
-        li
-          a(href='http://tienganhthaytien.com/lien-he/') Liên hệ
-    .col-xs-12
-      .jumbotron.text-center
-        h2 Type word & press Enter
-        .col-xs-8.col-xs-offset-2.well
-          .input-group.col-xs-12
-            input.form-control#s(type='text', placeholder="Search for...", autofocus)
-  .row
-    .col-xs-12
-      #resultsDiv
-        #oald.col-xs-6
-        #spinning.col-xs-3
-        #vndic.col-xs-3
+  // Page Contents
+  link(rel='stylesheet', type="text/css" href='/css/background.css')
+  br
+  br
+  br
+  br
+  br
+  br
+  .ui.grid.container
+    .row
+      .two.wide.column
+      .seven.wide.column
+        .ui.grid
+          .row
+            .ui.header
+              .ui.labeled.button
+                .ui.green.button
+                  i.checkmark.box.icon
+                button.ui.blue.left.pointing.label Lớp học với tối đa 4 học viên/lớp
+          .row
+            .ui.labeled.button
+              .ui.green.button
+                i.checkmark.box.icon
+              button.ui.blue.left.pointing.label 
+                | Thực hành giao tiếp và được sửa
+                br
+                | trực tiếp bởi giáo viên
+          .row
+            .ui.labeled.button
+              .ui.green.button
+                i.checkmark.box.icon
+              button.ui.blue.left.pointing.label 
+                | Giáo viên với kinh nghiệm 4 năm
+                br
+                | dạy tiếng anh giao tiếp
+          .row
+            .ui.labeled.button
+              .ui.green.button
+                i.checkmark.box.icon
+              button.ui.blue.left.pointing.label 
+                | Hỗ trợ nâng cao kiến thức back-
+                br
+                | ground thông qua từng buổi học
+      .four.wide.column
+        br
+        br
+        br
+        .ui.grid
+          .row
+            .green.colum
+              button.huge.green.ui.button 
+                a(href='#{endpoint}dang-ky-hoc/')
+                  | Đăng ký học thử &
+                  br
+                  | Xem mức học phí
