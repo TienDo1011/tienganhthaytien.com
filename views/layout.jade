@@ -5,58 +5,122 @@ html
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', type="text/css" href='/css/semantic.min.css')
-    style.
-      #body-content {
-        margin-top: 8%;
-      }
+    link(rel='stylesheet', type="text/css" href='/css/background.css')
   body
-    #header
-      //- - var endpoint = 'http://tienganhthaytien.com/'
-      - var endpoint = 'http://localhost:3001/'
+    //- - var endpoint = 'http://tienganhthaytien.com/'
+    - var endpoint = 'http://localhost:3001/'
+    
+    // Following Menu
+    .ui.large.top.fixed.hidden.menu
       .ui.container
-        .ui.top.fixed.pointing.large.menu
+        a.item(href=endpoint)
+          img.ui.small.image(src="/brand-transparent.png", style='width:60px;height:45px;')
+        .right.menu
+          a.active.item Trang chủ
+          .ui.dropdown.item
+            i.dropdown.icon  Đăng ký học
+            .menu
+              a.item(href='#{endpoint}test-dau-vao/') Test đầu vào
+              a.item(href='#{endpoint}dang-ky-hoc/') Đăng ký học
+          .ui.dropdown.item
+            i.dropdown.icon  Tự học
+            .menu
+              a.item(href='#{endpoint}cach-hoc-link-tai-phim/') Cách học & Link tải phim
+              a.item(href='#{endpoint}phim/') Phim
+              a.item(href='#{endpoint}truyen/') Truyện
+              a.item(href='#{endpoint}luyen-nghe/') Luyện nghe
+          a.item(href='http://dict.tienganhthaytien.com/') Dictionary
+          a.item(href='#{endpoint}lien-he/') Liên hệ
+    
+    // Sidebar Menu
+    .ui.vertical.inverted.sidebar.menu
+      a.active.item Trang chủ
+      .ui.dropdown.item
+        i.dropdown.icon  Đăng ký học
+        .menu
+          a.item(href='#{endpoint}test-dau-vao/') Test đầu vào
+          a.item(href='#{endpoint}dang-ky-hoc/') Đăng ký học
+      .ui.dropdown.item
+        i.dropdown.icon  Tự học
+        .menu
+          a.item(href='#{endpoint}cach-hoc-link-tai-phim/') Cách học & Link tải phim
+          a.item(href='#{endpoint}phim/') Phim
+          a.item(href='#{endpoint}truyen/') Truyện
+          a.item(href='#{endpoint}luyen-nghe/') Luyện nghe
+      a.item(href='http://dict.tienganhthaytien.com/') Dictionary
+      a.item(href='#{endpoint}lien-he/') Liên hệ
+
+    // Page contents
+    .pusher
+      .ui.inverted.vertical.masthead.center.aligned.segment
+        .ui.container
+          .ui.large.secondary.inverted.pointing.menu
           a.item(href=endpoint)
             img.ui.small.image(src="/brand-transparent.png", style='width:60px;height:45px;')
           .right.menu
-            a.item(href=endpoint) Trang chủ
+            a.active.item Trang chủ
             .ui.dropdown.item
               i.dropdown.icon  Đăng ký học
               .menu
                 a.item(href='#{endpoint}test-dau-vao/') Test đầu vào
-                a.item(href='#{endpoint}dang-ky-hoc/') Đăng ký học 
+                a.item(href='#{endpoint}dang-ky-hoc/') Đăng ký học
             .ui.dropdown.item
               i.dropdown.icon  Tự học
               .menu
                 a.item(href='#{endpoint}cach-hoc-link-tai-phim/') Cách học & Link tải phim
                 a.item(href='#{endpoint}phim/') Phim
-                a.item(href='#{endpoint}truyen/') Truyện 
-                a.item(href='#{endpoint}luyen-nghe/') Luyện nghe 
-            a.item(href='http://dict.tienganhthaytien.com/') Dictionary 
+                a.item(href='#{endpoint}truyen/') Truyện
+                a.item(href='#{endpoint}luyen-nghe/') Luyện nghe
+            a.item(href='http://dict.tienganhthaytien.com/') Dictionary
             a.item(href='#{endpoint}lien-he/') Liên hệ
-    #body-content
+        .ui.text.container
+          h1.ui.inverted.header
+            | Imagine-a-Company
+          h2 Do whatever you want when you want to.
+          .ui.huge.primary.button
+            | Get Started 
+            i.right.arrow.icon
       block content
-      br
-      br
-      br
-      br
-    #footer
       .ui.inverted.vertical.footer.segment
         .ui.container
           .ui.stackable.inverted.divided.equal.height.stackable.grid
-            .five.wide.column
-              h4.ui.inverted.header Liên hệ
+            .three.wide.column
+              h4.ui.inverted.header About
               .ui.inverted.link.list
-                a.item(href='#{endpoint}lien-he/') Bản đồ
-            .five.wide.column
-              h4.ui.inverted.header Social
+                a.item(href='#') Sitemap
+                a.item(href='#') Contact Us
+                a.item(href='#') Religious Ceremonies
+                a.item(href='#') Gazebo Plans
+            .three.wide.column
+              h4.ui.inverted.header Services
               .ui.inverted.link.list
-                a.item(href='https://www.facebook.com/tienganhthaytien/?ref=bookmarks') Facebook
-            .five.wide.column
-              h4.ui.inverted.header Copyright
+                a.item(href='#') Banana Pre-Order
+                a.item(href='#') DNA FAQ
+                a.item(href='#') How To Access
+                a.item(href='#') Favorite X-Men
+            .seven.wide.column
+              h4.ui.inverted.header Footer Header
               p
-                | © Copyright 2100, Tiendo1011@gmail.com
+                | Extra space for a call to action inside the footer that could help re-engage users.
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous")
     script(type='text/javascript', src='/js/semantic.min.js')
     script.
-      $('.ui.dropdown').dropdown({transition: 'drop', on: 'hover'});
-      $('.ui.embed').embed();
+      $(document)
+        .ready(function() {
+          // fix menu when passed
+          $('.masthead')
+            .visibility({
+              once: false,
+              onBottomPassed: function() {
+                $('.fixed.menu').transition('fade in');
+              },
+              onBottomPassedReverse: function() {
+                $('.fixed.menu').transition('fade out');
+              }
+            });
+          // create sidebar and attach to menu open
+          $('.ui.sidebar')
+            .sidebar('attach events', '.toc.item');
+          $('.ui.dropdown').dropdown({transition: 'drop', on: 'hover'});
+          $('.ui.embed').embed();
+        });
