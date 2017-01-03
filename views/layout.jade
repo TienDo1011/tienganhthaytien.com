@@ -5,15 +5,98 @@ html
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', type="text/css" href='/css/semantic.min.css')
-    link(rel='stylesheet', type="text/css" href='/css/background.css')
+    style.
+      .hidden.menu {
+        display: none;
+      }
+      .masthead.segment {
+        //- min-height: 60px;
+        padding: 1em 0em;
+      }
+      .masthead .logo.item img {
+        margin-right: 1em;
+      }
+      .masthead .ui.menu .ui.button {
+        margin-left: 0.5em;
+      }
+      .masthead h1.ui.header {
+        margin-top: 3em;
+        margin-bottom: 0em;
+        font-size: 4em;
+        font-weight: normal;
+      }
+      .masthead h2 {
+        font-size: 1.7em;
+        font-weight: normal;
+      }
+      .ui.vertical.stripe {
+        padding: 8em 0em;
+        min-height: 600px;
+        background-image: url("/travel.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .ui.vertical.stripe h3 {
+        font-size: 2em;
+      }
+      .ui.vertical.stripe .button + h3,
+      .ui.vertical.stripe p + h3 {
+        margin-top: 3em;
+      }
+      .ui.vertical.stripe .floated.image {
+        clear: both;
+      }
+      .ui.vertical.stripe p {
+        font-size: 1.33em;
+      }
+      .ui.vertical.stripe .horizontal.divider {
+        margin: 3em 0em;
+      }
+      .quote.stripe.segment {
+        padding: 0em;
+      }
+      .quote.stripe.segment .grid .column {
+        padding-top: 5em;
+        padding-bottom: 5em;
+      }
+      .footer.segment {
+        max-height: 50px;
+        padding: 5em 0em;
+      }
+      #pointing .toc.item {
+        display: none;
+      }
+      @media only screen and (max-width: 700px) {
+        .ui.fixed.menu {
+          display: none !important;
+        }
+        #pointing .item,
+        #pointing .menu {
+          display: none;
+        }
+        #pointing .toc.item {
+          display: block;
+        }
+        .masthead.segment {
+          //- min-height: 350px;
+        }
+        .masthead h1.ui.header {
+          font-size: 2em;
+          margin-top: 1.5em;
+        }
+        .masthead h2 {
+          margin-top: 0.5em;
+          font-size: 1.5em;
+        }
+      }
   body
-    //- - var endpoint = 'http://tienganhthaytien.com/'
-    - var endpoint = 'http://localhost:3001/'
+    - var endpoint = 'http://tienganhthaytien.com/'
+    //- - var endpoint = 'http://localhost:3001/'
     
     // Following Menu
     .ui.large.top.fixed.hidden.menu
       .ui.container
-        a.item(href=endpoint)
+        a.item(href='#{endpoint}')
           img.ui.small.image(src="/brand-transparent.png", style='width:60px;height:45px;')
         .right.menu
           a.active.item Trang chủ
@@ -34,19 +117,12 @@ html
     
     // Sidebar Menu
     .ui.vertical.inverted.sidebar.menu
-      a.active.item Trang chủ
-      .ui.dropdown.item
-        i.dropdown.icon  Đăng ký học
-        .menu
-          a.item(href='#{endpoint}test-dau-vao/') Test đầu vào
-          a.item(href='#{endpoint}dang-ky-hoc/') Đăng ký học
-      .ui.dropdown.item
-        i.dropdown.icon  Tự học
-        .menu
-          a.item(href='#{endpoint}cach-hoc-link-tai-phim/') Cách học & Link tải phim
-          a.item(href='#{endpoint}phim/') Phim
-          a.item(href='#{endpoint}truyen/') Truyện
-          a.item(href='#{endpoint}luyen-nghe/') Luyện nghe
+      a.active.item(href='#{endpoint}') Trang chủ
+      a.item(href='#{endpoint}test-dau-vao/') Test đầu vào
+      a.item(href='#{endpoint}dang-ky-hoc/') Đăng ký học
+      a.item(href='#{endpoint}phim/') Phim
+      a.item(href='#{endpoint}truyen/') Truyện
+      a.item(href='#{endpoint}luyen-nghe/') Luyện nghe
       a.item(href='http://dict.tienganhthaytien.com/') Dictionary
       a.item(href='#{endpoint}lien-he/') Liên hệ
 
@@ -54,54 +130,43 @@ html
     .pusher
       .ui.inverted.vertical.masthead.center.aligned.segment
         .ui.container
-          .ui.large.secondary.inverted.pointing.menu
-          a.item(href=endpoint)
-            img.ui.small.image(src="/brand-transparent.png", style='width:60px;height:45px;')
-          .right.menu
-            a.active.item Trang chủ
-            .ui.dropdown.item
-              i.dropdown.icon  Đăng ký học
-              .menu
-                a.item(href='#{endpoint}test-dau-vao/') Test đầu vào
-                a.item(href='#{endpoint}dang-ky-hoc/') Đăng ký học
-            .ui.dropdown.item
-              i.dropdown.icon  Tự học
-              .menu
-                a.item(href='#{endpoint}cach-hoc-link-tai-phim/') Cách học & Link tải phim
-                a.item(href='#{endpoint}phim/') Phim
-                a.item(href='#{endpoint}truyen/') Truyện
-                a.item(href='#{endpoint}luyen-nghe/') Luyện nghe
-            a.item(href='http://dict.tienganhthaytien.com/') Dictionary
-            a.item(href='#{endpoint}lien-he/') Liên hệ
-        .ui.text.container
-          h1.ui.inverted.header
-            | Imagine-a-Company
-          h2 Do whatever you want when you want to.
-          .ui.huge.primary.button
-            | Get Started 
-            i.right.arrow.icon
+          #pointing.ui.large.secondary.inverted.menu
+            a.toc.item
+              i.sidebar.icon
+            a.item(href='#{endpoint}')
+              img.ui.small.image(src="/brand-transparent.png", style='width:60px;height:45px;')
+            .right.menu
+              a.active.item(href='#{endpoint}') Trang chủ
+              .ui.dropdown.item
+                i.dropdown.icon  Đăng ký học
+                .menu
+                  a.item(href='#{endpoint}test-dau-vao/') Test đầu vào
+                  a.item(href='#{endpoint}dang-ky-hoc/') Đăng ký học
+              .ui.dropdown.item
+                i.dropdown.icon  Tự học
+                .menu
+                  a.item(href='#{endpoint}cach-hoc-link-tai-phim/') Cách học & Link tải phim
+                  a.item(href='#{endpoint}phim/') Phim
+                  a.item(href='#{endpoint}truyen/') Truyện
+                  a.item(href='#{endpoint}luyen-nghe/') Luyện nghe
+              a.item(href='http://dict.tienganhthaytien.com/') Dictionary
+              a.item(href='#{endpoint}lien-he/') Liên hệ
       block content
       .ui.inverted.vertical.footer.segment
         .ui.container
           .ui.stackable.inverted.divided.equal.height.stackable.grid
-            .three.wide.column
-              h4.ui.inverted.header About
+            .four.wide.column
+              h4.ui.inverted.header Liên hệ
               .ui.inverted.link.list
-                a.item(href='#') Sitemap
-                a.item(href='#') Contact Us
-                a.item(href='#') Religious Ceremonies
-                a.item(href='#') Gazebo Plans
-            .three.wide.column
-              h4.ui.inverted.header Services
+                a.item(href='#{endpoint}lien-he/') Bản đồ
+            .four.wide.column
+              h4.ui.inverted.header Social
               .ui.inverted.link.list
-                a.item(href='#') Banana Pre-Order
-                a.item(href='#') DNA FAQ
-                a.item(href='#') How To Access
-                a.item(href='#') Favorite X-Men
-            .seven.wide.column
-              h4.ui.inverted.header Footer Header
+                a.item(href='https://www.facebook.com/tienganhthaytien/?ref=bookmarks') Facebook
+            .eight.wide.column
+              h4.ui.inverted.header Copyright
               p
-                | Extra space for a call to action inside the footer that could help re-engage users.
+                | © Copyright 2100, Tiendo1011@gmail.com
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous")
     script(type='text/javascript', src='/js/semantic.min.js')
     script.
