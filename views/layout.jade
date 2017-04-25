@@ -89,6 +89,25 @@ html
           font-size: 1.5em;
         }
       }
+
+      #playlist {
+          display:table;
+      }
+      #playlist li{
+          cursor:pointer;
+          padding:8px;
+      }
+
+      #playlist li:hover{
+          color:blue;                        
+      }
+      #videoarea {
+          float:left;
+          width:640px;
+          height:480px;
+          margin:10px;    
+          border:1px solid silver;
+      }
   body
     - var endpoint = 'http://tienganhthaytien.com/'
     //- - var endpoint = 'http://localhost:3001/'
@@ -188,4 +207,17 @@ html
             .sidebar('attach events', '.toc.item');
           $('.ui.dropdown').dropdown({transition: 'drop', on: 'hover'});
           $('.ui.embed').embed();
+          // Video player
+          $("#playlist li").on("click", function() {
+              $(this).addClass("ui green basic label").siblings().removeClass("ui green basic label");
+              $("#videoarea").attr({
+                  "src": $(this).attr("movieurl"),
+                  "poster": "",
+                  "autoplay": "autoplay"
+              })
+          })
+          $("#videoarea").attr({
+              "src": $("#playlist li").eq(0).attr("movieurl"),
+              "poster": $("#playlist li").eq(0).attr("moviesposter")
+          })
         });
